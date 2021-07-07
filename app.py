@@ -50,8 +50,8 @@ def predict():
 	# clf = joblib.load(NB_spam_model)
 
 	if request.method == 'POST':
-		message = request.form['message']
-		data = [message]
+		DMS_OPN_DESC = request.form['DMS_OPN_DESC']
+		data = [DMS_OPN_DESC]
 		vect = cv.transform(data).toarray()
 		my_prediction = clf.predict(vect)
 	return render_template('result.html',prediction = my_prediction)
